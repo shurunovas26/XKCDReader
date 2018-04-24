@@ -20,17 +20,8 @@ class ComicsAdapter(
     private val comics: Comic.List
 ) : RecyclerView.Adapter<ComicViewHolder>() {
 
-    /**
-     * @return количество элементов для отображения
-     */
     override fun getItemCount() = comics.size
 
-    /**
-     * Создаёт [RecyclerView.ViewHolder] который хранит в себе [View] для переиспользования
-     * @param parent ссылка на контейнер в котором будут хранится [View]
-     * @param viewType тип создаваемого контента, определяется в методе [RecyclerView.Adapter.getItemViewType]
-     * @return ViewHolder с PhotoView внутри
-     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
 
         val textView = TextView(parent!!.context).apply {
@@ -39,25 +30,13 @@ class ComicsAdapter(
             padding = dip(16)
         }
 
-        // Создаём и возвращаем объект хранителя View
         val holder = ComicViewHolder(textView)
         return holder
     }
 
-    /**
-     * Выставляем данные в [View]
-     * либо обновляем в случае если [View] уже был создан
-     * это нужно обязательно иметь ввиду т.к. [RecyclerView.ViewHolder]
-     * хранит в себе [View] в последнем её состоянии
-     * @param holder объект который хранит в себе [View]
-     * @param position позиция элемента в списке
-     */
     override fun onBindViewHolder(holder: ComicViewHolder, position: Int) {
-        // Получаем объект PhotoView из PhotoViewHolder
         val comicView = holder.view
-        // Получем объект Photo из списка по позиции
         val comic = comics[position]
-        // Устанавливаем данные с нашим представлением (View)
         comicView.text = (comic.num.toString() + ". " + comic.title)
 
         comicView.onClick {

@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Стартовый медот Activity
-     * с него начинается жизненный цикл компоенента
+     * с него начинается жизненный цикл компонента
      * https://developer.android.com/guide/components/activities/activity-lifecycle.html
      */
 
